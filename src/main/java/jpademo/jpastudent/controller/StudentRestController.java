@@ -27,6 +27,13 @@ public class StudentRestController {
         return studentRepository.save(student);
     }
 
+    @PostMapping("/add")
+    public void addStud(){
+        Student student = new Student();
+        student.setName("jack2");
+        studentRepository.save(student);
+    }
+
     @PutMapping("/student")
     @ResponseStatus(HttpStatus.CREATED)
     public Student updateStudent(@RequestBody Student student){
@@ -41,6 +48,7 @@ public class StudentRestController {
         }
 
     }
+
 
     @PutMapping("/student/{id}")
     public ResponseEntity<Student> putStudent(@PathVariable int id, @RequestBody Student student){
