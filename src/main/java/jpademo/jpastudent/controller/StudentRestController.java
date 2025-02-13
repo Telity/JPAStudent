@@ -27,7 +27,7 @@ public class StudentRestController {
         return studentRepository.save(student);
     }
 
-    @PostMapping("/add")
+    @GetMapping("/add")
     public void addStud(){
         Student student = new Student();
         student.setName("jack2");
