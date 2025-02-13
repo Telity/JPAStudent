@@ -23,6 +23,7 @@ public class StudentRestController {
     }
     @GetMapping("/students")
     public List<Student> students(){
+        System.out.println("Hello im under the water");
         return studentRepository.findAll();
     }
 
