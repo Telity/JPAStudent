@@ -16,6 +16,11 @@ public class StudentRestController {
     @Autowired
     StudentRepository studentRepository;
 
+
+    @GetMapping("/")
+    public String start(){
+        return "Wake up neo";
+    }
     @GetMapping("/students")
     public List<Student> students(){
         return studentRepository.findAll();
@@ -28,10 +33,10 @@ public class StudentRestController {
     }
 
     @GetMapping("/add")
-    public void addStud(){
+    public Student addStud(){
         Student student = new Student();
         student.setName("jack2");
-        studentRepository.save(student);
+        return studentRepository.save(student);
     }
 
     @PutMapping("/student")
