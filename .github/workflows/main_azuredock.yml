@@ -25,6 +25,10 @@ jobs:
           distribution: 'microsoft'
 
       - name: Build with Maven
+        env:
+          JDBCUrl: ${{ secrets.JDBCUrl }}
+          JDBCUser: ${{ secrets.JDBCUser }}
+          JDBCPass: ${{ secrets.JDBCPass }}
         run: mvn clean install
 
       - name: Upload artifact for deployment job

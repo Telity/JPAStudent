@@ -40,6 +40,7 @@ public class StudentRestController {
         return studentRepository.save(student);
     }
 
+
     @PutMapping("/student")
     @ResponseStatus(HttpStatus.CREATED)
     public Student updateStudent(@RequestBody Student student){
@@ -57,7 +58,7 @@ public class StudentRestController {
 
 
     @PutMapping("/student/{id}")
-    public ResponseEntity<Student> putStudent(@PathVariable int id, @RequestBody Student student){
+    public ResponseEntity<Student> putStudent(@PathVariable long id, @RequestBody Student student){
         Optional<Student> optional = studentRepository.findById(id);
         if(optional.isPresent()){
             studentRepository.save(student);
@@ -68,7 +69,7 @@ public class StudentRestController {
         }
     }
     @DeleteMapping("/student/{id}")
-    public ResponseEntity<String> deleteStudent(@PathVariable int id){
+    public ResponseEntity<String> deleteStudent(@PathVariable long id){
         Optional<Student> optional = studentRepository.findById(id);
         if(optional.isPresent()){
             studentRepository.deleteById(id);
